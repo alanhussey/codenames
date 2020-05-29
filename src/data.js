@@ -1,7 +1,7 @@
-const R = "r";
-const B = "b";
-const X = "x";
-const N = "w";
+export const R = "r";
+export const B = "b";
+export const X = "x";
+export const N = "w";
 
 function card([str]) {
   return str
@@ -10,7 +10,7 @@ function card([str]) {
     .filter((line) => line.length > 0);
 }
 
-var data = [
+export default [
   card`
   bbwww
   bbrrw
@@ -329,5 +329,5 @@ var data = [
   rbrbb
   kwwbb
   wbrwb
-  `
+  `,
 ];

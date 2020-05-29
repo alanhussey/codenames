@@ -1,18 +1,8 @@
 import React from "react";
 import "./App.css";
+import data, { R, B, X, N } from "./data";
 
-const R = "r";
-const B = "b";
-const X = "X";
-const N = " ";
-
-const card = [
-  [N, R, R, B, R],
-  [N, B, N, N, B],
-  [X, B, N, R, N],
-  [R, R, B, B, R],
-  [B, B, B, N, R],
-];
+const card = data[0];
 
 function App() {
   return (
@@ -21,7 +11,7 @@ function App() {
         <tbody>
           {card.map((row, index) => (
             <tr key={index}>
-              {row.map((cell, index) => (
+              {[...row].map((cell, index) => (
                 <td
                   key={index}
                   style={{
