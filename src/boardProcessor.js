@@ -4,7 +4,7 @@ function getAtPosition(input, y, x) {
   return input[y][x];
 }
 
-function findMatchingBoardsf(input, availableData) {
+function findMatchingBoards(input, availableData) {
   return availableData.filter(dataElt => {
     return compareBoards(input, dataElt);
   });
