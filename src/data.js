@@ -1,3 +1,5 @@
+import rotate from "./rotate";
+
 export const R = "r";
 export const B = "b";
 export const X = "x";
@@ -10,7 +12,7 @@ function card([str]) {
     .filter((line) => line.length > 0);
 }
 
-export default [
+const cards = [
   card`
   bbwww
   bbrrw
@@ -331,3 +333,19 @@ export default [
   wbrwb
   `,
 ];
+
+export { cards };
+
+const allCards = cards.flatMap((card) => {
+  const cards = [card];
+
+  let rotations = 3;
+  let rotated = card;
+  while (rotations--) {
+    rotated = rotate(card);
+    cards.push(rotated);
+  }
+  return cards;
+});
+
+export default allCards;
