@@ -15,3 +15,11 @@ td {
   color: white;
   text-shadow: 0 0 0.1em;
 }
+
+td::before {
+  content: attr(type);
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  pointer-events: none;
+}

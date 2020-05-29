@@ -6,7 +6,7 @@ export const X = "x";
 export const N = "w";
 export const U = "u";
 
-function card([str]) {
+export function card([str]) {
   return str
     .split("\n")
     .map((line) => line.trim())
