@@ -4,6 +4,7 @@ export const R = "r";
 export const B = "b";
 export const X = "x";
 export const N = "w";
+export const U = "u";
 
 function card([str]) {
   return str
