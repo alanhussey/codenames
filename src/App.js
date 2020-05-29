@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
 
-const RED = "r";
-const BLU = "b";
-const EXX = "X";
-const BLN = " ";
+const R = "r";
+const B = "b";
+const X = "X";
+const N = " ";
 
 const card = [
-  [BLN, RED, RED, BLU, RED],
-  [BLN, BLU, BLN, BLN, BLU],
-  [EXX, BLU, BLN, RED, BLN],
-  [RED, RED, BLU, BLU, RED],
-  [BLU, BLU, BLU, BLN, RED],
+  [N, R, R, B, R],
+  [N, B, N, N, B],
+  [X, B, N, R, N],
+  [R, R, B, B, R],
+  [B, B, B, N, R],
 ];
 
 function App() {
@@ -26,19 +26,19 @@ function App() {
                   key={index}
                   style={{
                     backgroundColor: {
-                      [RED]: "red",
-                      [BLU]: "blue",
-                      [EXX]: "black",
-                      [BLN]: "antiquewhite",
+                      [R]: "red",
+                      [B]: "blue",
+                      [X]: "black",
+                      [N]: "antiquewhite",
                     }[cell],
                   }}
                 >
                   {
                     {
-                      [RED]: "◇",
-                      [BLU]: "⚪",
-                      [EXX]: "×",
-                      [BLN]: " ",
+                      [R]: "◇",
+                      [B]: "⚪",
+                      [X]: "×",
+                      [N]: " ",
                     }[cell]
                   }
                 </td>
