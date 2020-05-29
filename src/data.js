@@ -2,15 +2,19 @@ import rotate from "./rotate";
 
 export const R = "r";
 export const B = "b";
-export const X = "x";
+export const X = "k";
 export const N = "w";
 export const U = "u";
 
+let id = 0;
 export function card([str]) {
-  return str
-    .split("\n")
-    .map((line) => line.trim())
-    .filter((line) => line.length > 0);
+  return {
+    id: String(id++),
+    board: str
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0),
+  };
 }
 
 const cards = [
@@ -341,10 +345,13 @@ const allCards = cards.flatMap((card) => {
   const cards = [card];
 
   let rotations = 3;
-  let rotated = card;
+  let rotated = card.board;
   while (rotations--) {
-    rotated = rotate(card);
-    cards.push(rotated);
+    rotated = rotate(rotated);
+    cards.push({
+      id: `${card.id}-${{ 2: "b", 1: "c", 0: "d" }[rotations]}`,
+      board: rotated,
+    });
   }
   return cards;
 });

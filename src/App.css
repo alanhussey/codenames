@@ -11,9 +11,13 @@ td {
   width: 20vw;
   height: 20vw;
   background-color: antiquewhite;
-  font-size: 3em;
+  font-size: 1em;
   color: white;
   text-shadow: 0 0 0.1em;
+}
+
+td span {
+  display: block;
 }
 
 td::before {

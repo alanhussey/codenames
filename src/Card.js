@@ -1,7 +1,14 @@
 import React from "react";
 import { R, B, X, N, U } from "./data";
 
-export default function Card({ card, onClick }) {
+const colors = {
+  [R]: "red",
+  [B]: "blue",
+  [X]: "black",
+  [N]: "antiquewhite",
+  [U]: "lightgrey",
+};
+export default function Card({ card, probabilities, onClick }) {
   return (
     <table>
       <tbody>
@@ -11,13 +18,7 @@ export default function Card({ card, onClick }) {
               <td
                 key={x}
                 style={{
-                  backgroundColor: {
-                    [R]: "red",
-                    [B]: "blue",
-                    [X]: "black",
-                    [N]: "antiquewhite",
-                    [U]: "lightgrey",
-                  }[cell],
+                  backgroundColor: colors[cell],
                 }}
                 data-type={
                   {
@@ -40,6 +41,34 @@ export default function Card({ card, onClick }) {
                   }}
                   onClick={() => onClick(x, y)}
                 />
+                {cell === U && (
+                  <>
+                    <span style={{ color: colors[R] }}>
+                      {Math.round(
+                        (probabilities[R][y][x] / probabilities.total) * 100
+                      )}
+                      %
+                    </span>
+                    <span style={{ color: colors[B] }}>
+                      {Math.round(
+                        (probabilities[B][y][x] / probabilities.total) * 100
+                      )}
+                      %
+                    </span>
+                    <span style={{ color: colors[X] }}>
+                      {Math.round(
+                        (probabilities[X][y][x] / probabilities.total) * 100
+                      )}
+                      %
+                    </span>
+                    <span style={{ color: colors[N] }}>
+                      {Math.round(
+                        (probabilities[N][y][x] / probabilities.total) * 100
+                      )}
+                      %
+                    </span>
+                  </>
+                )}
               </td>
             ))}
           </tr>
